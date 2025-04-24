@@ -1,7 +1,7 @@
-import Footer from '../components/common/Footer'
-import Header from '../components/common/Header'
 import { Outlet, useLocation } from 'react-router-dom'
 import { AnimatePresence } from 'framer-motion'
+import Header from '../components/common/Header'
+import Footer from '../components/common/Footer'
 
 const AuthLayout = () => {
   const location = useLocation()

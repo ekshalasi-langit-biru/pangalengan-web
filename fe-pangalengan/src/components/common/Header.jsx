@@ -17,11 +17,6 @@ const useScroll = () => {
 
 const Header = () => {
   const { user, logout } = useAuth()
-  // ## DI BAWAH INI (COMMENT TEXT) UNTUK TEST TAMPILAN HEADER KETIKA USER SUDAH LOGIN ##
-  // const { user, logout } = {
-  //   user: { name: 'Test User' },
-  //   logout: () => console.log('Logged out'),
-  // }
   const isScrolled = useScroll()
   const { pathname } = useLocation()
   const navigate = useNavigate()

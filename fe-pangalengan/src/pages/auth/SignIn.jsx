@@ -46,7 +46,7 @@ const SignIn = () => {
 
         <button className="mt-8 w-full bg-black text-white py-3 rounded-md shadow-md hover:bg-gray-900 active:shadow-none transition text-sm font-medium">
           Masuk
-        </button> 
+        </button>
       </motion.div>
     </div>
   )

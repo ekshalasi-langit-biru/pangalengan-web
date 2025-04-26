@@ -1,16 +1,21 @@
-import { Outlet } from 'react-router-dom'
+import { Outlet, useLocation } from 'react-router-dom'
 import Header from '../components/common/Header'
 import Footer from '../components/common/Footer'
 
 const UserLayout = () => {
+  const { pathname } = useLocation()
+  const isSettingsPage = pathname.startsWith('/settings')
+
   return (
-    <>
-      <Header />
-      <main className="min-h-screen px-4 py-8">
+    <div className={isSettingsPage ? 'bg-white' : ''}>
+      {!isSettingsPage && <Header />}
+      
+      <main className={isSettingsPage ? 'min-h-screen' : 'min-h-screen px-4 py-8'}>
         <Outlet />
       </main>
+
       <Footer />
-    </>
+    </div>
   )
 }
 

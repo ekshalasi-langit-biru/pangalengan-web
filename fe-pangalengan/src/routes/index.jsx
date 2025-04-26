@@ -4,23 +4,26 @@ import useAuth from '../context/useAuth'
 import HomePage from '../pages/user/HomePage'
 import SignIn from '../pages/auth/SignIn'
 import SignUp from '../pages/auth/SignUp'
+import AccountSettings from '../pages/user/AccountSettings'
 
 import AuthLayout from '../layout/AuthLayout'
 import UserLayout from '../layout/UserLayout'
 // import AdminLayout from '../layout/AdminLayout'
 
 const ProtectedRoute = ({ children, role }) => {
-  const { user } = useAuth()
-
-  if (!user) return <Navigate to="/signin" />
-  if (role && user.role !== role) return <Navigate to="/" />
-  return children
+    const { user, loading } = useAuth()
+  
+    if (loading) return null
+  
+    if (!user) return <Navigate to="/sign-in" />
+    if (role && user.role !== role) return <Navigate to="/" />
+    return children
 }
 
 const AppRoutes = () => {
   return (
     <Routes>
-        {/* Halaman Umum (Home, Detail Produk) */}
+        {/* General Pages (Home, Detail Produk, etc) */}
         <Route element={<UserLayout />}>
             <Route path="/" element={<HomePage />} />
             {/* <Route path="/e.g-detail-product" element={<ProductDetail />} /> */}
@@ -32,27 +35,18 @@ const AppRoutes = () => {
             <Route path="/sign-up" element={<SignUp />} />
         </Route>
 
-        {/* User Pages (Perlu Login) */}
-        {/* <Route
-            path="/wishlist"
-            element={
-            <ProtectedRoute role="user">
-                <UserLayout>
-                <Wishlist />
-                </UserLayout>
-            </ProtectedRoute>
-            }
-        />
+        {/* User Protected Pages */}
         <Route
-            path="/profile"
             element={
             <ProtectedRoute role="user">
-                <UserLayout>
-                <Profile />
-                </UserLayout>
+                <UserLayout />
             </ProtectedRoute>
             }
-        /> */}
+        >
+            <Route path="/settings" element={<AccountSettings />} />
+            {/* <Route path="/wishlist" element={<Wishlist />} /> */}
+            {/* <Route path="/profile" element={<Profile />} /> */}
+        </Route>
 
         {/* Admin Pages */}
         {/* <Route

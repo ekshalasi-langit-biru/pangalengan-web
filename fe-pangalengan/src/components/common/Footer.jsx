@@ -28,7 +28,7 @@ const Footer = () => {
           <div>
             <h3 className="font-semibold mb-2">Akun</h3>
             <ul className="leading-relaxed space-y-1">
-              <li><Link to="/profile" className="hover:underline">Akun Saya</Link></li>
+              <li><Link to="/settings" className="hover:underline">Akun Saya</Link></li>
               <div className="flex space-x-1">
                 <button 
                   onClick={() => {

@@ -1,9 +1,10 @@
 import { Routes, Route, Navigate } from 'react-router-dom'
 import useAuth from '../context/useAuth'
 
-import HomePage from '../pages/user/HomePage'
 import SignIn from '../pages/auth/SignIn'
 import SignUp from '../pages/auth/SignUp'
+import HomePage from '../pages/user/HomePage'
+import AboutPage from '../pages/user/AboutPage'
 import AccountSettings from '../pages/user/AccountSettings'
 
 import AuthLayout from '../layout/AuthLayout'
@@ -26,6 +27,7 @@ const AppRoutes = () => {
         {/* General Pages (Home, Detail Produk, etc) */}
         <Route element={<UserLayout />}>
             <Route path="/" element={<HomePage />} />
+            <Route path="/tentang" element={<AboutPage />} />
             {/* <Route path="/e.g-detail-product" element={<ProductDetail />} /> */}
         </Route>
 

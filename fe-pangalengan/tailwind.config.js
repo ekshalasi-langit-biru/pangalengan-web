@@ -11,6 +11,8 @@ export default {
         graySuperLight: '#F4F4F4',
         grayExtraLight: '#F5F5F5',
         grayMedium: '#7B7B7B',
+        graySoft: '#DEDEDE',
+        secondary: '#667085',
       }
     },
   },

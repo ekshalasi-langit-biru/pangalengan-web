@@ -53,7 +53,7 @@ const SignUp = () => {
 
         <button className="mt-6 w-full bg-white border py-3 rounded-md shadow-md hover:bg-grayExtraLight transition text-sm font-medium flex items-center justify-center gap-2">
           <img
-            src="/logo/iconGoogle.svg"
+            src="/logo/googleIcon.svg"
             alt="Google"
             className="w-5 h-5"
           />

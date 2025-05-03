@@ -9,6 +9,8 @@ import AccountSettings from '../pages/user/AccountSettings'
 
 import AuthLayout from '../layout/AuthLayout'
 import UserLayout from '../layout/UserLayout'
+import KatalogPage from '../pages/user/KatalogPage'
+import LikedProducts from '../pages/user/LikedProducts'
 // import AdminLayout from '../layout/AdminLayout'
 
 const ProtectedRoute = ({ children, role }) => {
@@ -28,6 +30,9 @@ const AppRoutes = () => {
         <Route element={<UserLayout />}>
             <Route path="/" element={<HomePage />} />
             <Route path="/tentang" element={<AboutPage />} />
+            <Route path="/katalog" element={<KatalogPage />} />
+            <Route path="/liked-products" element={<LikedProducts />} />
+
             {/* <Route path="/e.g-detail-product" element={<ProductDetail />} /> */}
         </Route>
 

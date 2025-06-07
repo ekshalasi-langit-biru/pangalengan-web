@@ -1,26 +1,16 @@
-import { Link, useLocation, useNavigate } from "react-router-dom";
+import { Link } from 'react-router-dom';
 
-const Breadcrumbs = ({ paths }) => {
-  const generatePath = (index) => {
-    return "/" + paths.slice(0, index + 1).join("/");
-  };
+const Breadcrumb = ({ paths }) => {
   return (
-    <div className="mb-4 text-sm text-gray-500">
+    <div className="text-sm text-gray-500 mb-4">
       {paths.map((path, idx) => (
         <span key={idx}>
-          {idx === 0 ? (
-            <Link to="/" className="hover:underline focus:font-bold">
-              {path}
-            </Link>
-          ) : idx < paths.length - 1 ? (
-            <Link
-              to={`/${paths.slice(0, idx + 1).join("/")}`}
-              className="hover:underline"
-            >
-              {path}
+          {idx !== paths.length - 1 ? (
+            <Link to={path.href} className="hover:text-blue-500">
+              {path.label}
             </Link>
           ) : (
-            <span>{path}</span>
+            <span>{path.label}</span> 
           )}
           {idx !== paths.length - 1 && " / "}
         </span>
@@ -29,4 +19,4 @@ const Breadcrumbs = ({ paths }) => {
   );
 };
 
-export default Breadcrumbs;
+export default Breadcrumb;

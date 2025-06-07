@@ -1,12 +1,16 @@
-import React from "react";
-import { FiHeart } from "react-icons/fi";
+import React, { useState } from "react";
+import { FiHeart, FiTrash2 } from "react-icons/fi";
+import { Link, useNavigate } from "react-router-dom";
+import { useLikedProducts } from "../../context/LikedProductContext";
 
-const ProductCard = ({ product, onLike }) => {
+
+
+const ProductCard = ({ product, onLike, isLikedPage }) => {
   if (!product) {
     return <div>Produk tidak tersedia</div>;
   }
 
-  const { name, price, imageUrl, diskon, presentaseDiskon } = product;
+  const { name, price, mainImage, diskon, presentaseDiskon } = product;
 
   const formatPrice = (price) => {
     return price.toLocaleString("id-ID");
@@ -21,12 +25,27 @@ const ProductCard = ({ product, onLike }) => {
   };
 
   const discountedPrice = calculateDiscountedPrice();
+  const { likedProducts, setLikedProducts } = useLikedProducts();
+  const navigate = useNavigate();
 
-   const handleHeartClick = () => {
-     if (onLike) {
-       onLike(product);
-     }
-   };
+  const handleLike = (product) => {
+    if (!likedProducts.some((likedProduct) => likedProduct.id === product.id)) {
+      setLikedProducts([...likedProducts, product]);
+      // navigate("/liked-products");
+    } else {
+      setLikedProducts(
+        likedProducts.filter(
+          (likedProduct) => likedProduct.id !== product.id,
+        ),
+      );
+    }
+  };
+
+  const handleHeartClick = () => {
+    if (!onLike) {
+      handleLike(product);
+    }
+  };
 
   return (
     <div className="bg-white rounded-lg shadow-md overflow-hidden">
@@ -37,18 +56,42 @@ const ProductCard = ({ product, onLike }) => {
           </div>
         )}
         <img
-          src={imageUrl}
+          src={mainImage}
           alt={name}
           className="w-full h-full object-contain"
         />
-        <button onClick={handleHeartClick} className="absolute top-2 right-2 p-2 rounded-full bg-white shadow">
-          <FiHeart className="h-5 w-5 text-gray-700" />
+        <button
+          onClick={handleHeartClick}
+          className={`absolute top-2 right-2 p-2 rounded-full shadow transition
+            ${likedProducts.some((p) => p.id === product.id) && !isLikedPage ? 'bg-red-500' : 'bg-white'}
+            hover:scale-110 duration-200
+          `}
+        >
+          {isLikedPage ? (
+            <FiTrash2
+              className="h-5 w-5 text-gray-600 transition-transform duration-200 hover:text-red-600"
+            />
+          ) : (
+            <FiHeart
+              className={`h-5 w-5 transition-transform duration-200
+            ${likedProducts.some((p) => p.id === product.id)
+                  ? 'text-white hover:scale-125'
+                  : 'text-gray-700 hover:text-black'}
+          `}
+            />
+          )}
         </button>
-      </div>
 
-      <div className="bg-black text-white text-center py-3 cursor-pointer hover:opacity-90">
-        Detail Produk
       </div>
+      <Link to={`/product/${product.id}`}>
+        <div
+          className="bg-black text-white text-center py-3 cursor-pointer 
+      transition duration-200 transform hover:scale-95 hover:bg-opacity-90"
+        >
+          Detail Produk
+        </div>
+      </Link>
+
 
       <div className="p-4">
         <h3 className="text-lg font-semibold text-gray-800 mb-1">{name}</h3>

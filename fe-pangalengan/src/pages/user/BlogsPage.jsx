@@ -1,4 +1,4 @@
-import Breadcrumb from '../../components/common/BreadCrumbs'
+import Breadcrumb from '../../components/common/BreadCrumb'
 import FeaturedPost from '../../components/Blogs/FeaturedPost';
 import PostListItem from '../../components/Blogs/PostListItem';
 import TopHeadlines from '../../components/Blogs/TopHeadlines';

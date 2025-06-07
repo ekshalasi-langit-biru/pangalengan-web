@@ -1,4 +1,4 @@
-import Breadcrumb from '../../components/common/BreadCrumbs'
+import Breadcrumb from '../../components/common/BreadCrumb'
 import { useParams } from 'react-router-dom';
 
 const BlogsDummy = [

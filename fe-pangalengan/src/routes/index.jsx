@@ -6,12 +6,16 @@ import SignUp from '../pages/auth/SignUp'
 import HomePage from '../pages/user/HomePage'
 import AboutPage from '../pages/user/AboutPage'
 import AccountSettings from '../pages/user/AccountSettings'
+
 import BlogsPage from '../pages/user/BlogsPage'
 import BlogPage from '../pages/user/BlogPage'
 import BlogsPageCategory from '../pages/user/BlogsPageCategory'
 
 import AuthLayout from '../layout/AuthLayout'
 import UserLayout from '../layout/UserLayout'
+import KatalogPage from '../pages/user/KatalogPage'
+import LikedProducts from '../pages/user/LikedProducts'
+import DetailedProduct from '../pages/user/DetailedProduct'
 // import AdminLayout from '../layout/AdminLayout'
 
 const ProtectedRoute = ({ children, role }) => {
@@ -30,9 +34,13 @@ const AppRoutes = () => {
         {/* General Pages (Home, Detail Produk, etc) */}
         <Route element={<UserLayout />}>
             <Route path="/" element={<HomePage />} />
+            <Route path="/tentang" element={<AboutPage />} />
             <Route path="/Blogs" element={<BlogsPage />} />
             <Route path="/BlogPage/:id" element={<BlogPage/>} />
             <Route path="/Blogs/:category" element={<BlogsPageCategory/>} />
+            <Route path="/katalog" element={<KatalogPage />} />
+            <Route path="/liked-products" element={<LikedProducts />} />
+            <Route path="/product/:id" element={<DetailedProduct/>} />
             {/* <Route path="/e.g-detail-product" element={<ProductDetail />} /> */}
         </Route>
 

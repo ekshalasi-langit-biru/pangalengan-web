@@ -1,14 +1,14 @@
-import Breadcrumbs from "../../components/common/BreadCrumbs";
 import { FiSearch } from "react-icons/fi";
 import CategoryExplorer from "../../components/user/CategoryExplorer";
-import Products from "../../components/user/Products";
+import ListProducts from "../../components/user/ListProducts";
+import Breadcrumb from "../../components/common/BreadCrumb";
 
 const KatalogPage = () => {
   return (
     <>
       <div className="mx-auto max-w-screen-xl px-4 py-8">
         <section className="mb-8">
-          <Breadcrumbs paths={["Beranda", "Katalog"]} />
+        <Breadcrumb paths={[{ label: 'Home', href: '/' }, { label: 'Katalog', href: '/' }]} />
         </section>
 
         <section className="mt-[47px]">
@@ -47,7 +47,7 @@ const KatalogPage = () => {
             </h2>
           </div>
           <div className="mt-8">
-            <Products />
+            <ListProducts/>
           </div>
         </section>
       </div>

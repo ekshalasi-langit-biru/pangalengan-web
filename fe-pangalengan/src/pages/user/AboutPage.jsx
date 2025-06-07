@@ -1,4 +1,4 @@
-import BreadCrumbs from "../../components/common/BreadCrumbs";
+import BreadCrumbs from "../../components/common/BreadCrumb";
 import VisionMission from "../../components/user/VisionMission";
 import OrganizationStructure from "../../components/user/OrganizationStructure";
 import VillageLocation from "../../components/user/VillageLocation";

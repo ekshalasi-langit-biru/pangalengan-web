@@ -1,30 +1,48 @@
-import { useEffect, useState } from 'react'
-import { Link, useLocation, useNavigate } from 'react-router-dom'
-import { FiHeart, FiUser, FiSearch } from 'react-icons/fi'
-import useAuth from '../../context/useAuth'
+import { useEffect, useState } from "react";
+import { Link, useLocation, useNavigate } from "react-router-dom";
+import { FiHeart, FiUser, FiSearch } from "react-icons/fi";
+import useAuth from "../../context/useAuth";
 
 const useScroll = () => {
-  const [isScrolled, setIsScrolled] = useState(false)
+  const [isScrolled, setIsScrolled] = useState(false);
 
   useEffect(() => {
-    const onScroll = () => setIsScrolled(window.scrollY > 10)
-    window.addEventListener('scroll', onScroll)
-    return () => window.removeEventListener('scroll', onScroll)
-  }, [])
+    const onScroll = () => setIsScrolled(window.scrollY > 10);
+    window.addEventListener("scroll", onScroll);
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
 
-  return isScrolled
-}
+  return isScrolled;
+};
+
+const MyHeartIcon = () => {
+  const [isClicked, setIsClicked] = useState(false);
+  const location = useLocation();
+
+  const handleClick = () => {
+    setIsClicked(!isClicked);
+  };
+
+  const heartStyle = {
+    fill: location.pathname === "/liked-products" ? "red" : "none",
+    stroke: location.pathname === "/liked-products" ? "red" : "black",
+  };
+
+  return (
+    <FiHeart className="w-5 h-5" style={heartStyle} onClick={handleClick} />
+  );
+};
 
 const Header = () => {
-  const { user, logout } = useAuth()
-  const isScrolled = useScroll()
-  const { pathname } = useLocation()
-  const navigate = useNavigate()
+  const { user, logout } = useAuth();
+  const isScrolled = useScroll();
+  const { pathname } = useLocation();
+  const navigate = useNavigate();
 
   return (
     <header
       className={`sticky top-0 z-50 flex items-center justify-between px-6 py-4 bg-white transition-all duration-300 ${
-        isScrolled ? 'shadow-xl' : 'shadow-md'
+        isScrolled ? "shadow-xl" : "shadow-md"
       }`}
     >
       <Link to="/" className="ml-10 text-xl font-bold text-black">
@@ -61,8 +79,8 @@ const Header = () => {
 
         {user ? (
           <div className="flex items-center gap-4">
-            <Link to="/wishlist">
-              <FiHeart className="w-5 h-5 text-black" />
+            <Link to="/liked-products">
+              <MyHeartIcon className="w-5 h-5 text-black" />
             </Link>
             <Link to="/profile">
               <FiUser className="w-5 h-5 text-black" />
@@ -72,7 +90,7 @@ const Header = () => {
           <div className="flex space-x-1">
             <button
               onClick={() => {
-                if (pathname !== '/sign-in') navigate('/sign-in')
+                if (pathname !== "/sign-in") navigate("/sign-in");
               }}
               className="bg-black text-white font-semibold text-sm px-6 py-2 rounded-md shadow-md hover:bg-white hover:text-black hover:underline transition"
             >
@@ -88,7 +106,7 @@ const Header = () => {
         )}
       </div>
     </header>
-  )
-}
+  );
+};
 
-export default Header
+export default Header;

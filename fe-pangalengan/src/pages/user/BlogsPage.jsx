@@ -116,7 +116,7 @@ export default function BlogPage() {
   const topHeadlines = BlogsDummy.slice().sort((a, b) => b.popularity - a.popularity).slice(0, 4)
   const latestPosts = BlogsDummy.slice().sort((a, b) => new Date(b.postedAt) - new Date(a.postedAt)).slice(0,3);
   return (
-    <div className="max-w-7xl mx-auto px-6 py-10">
+    <div className="max-w-7xl mx-auto px-6 py-1">
       <Breadcrumb paths={[{ label: 'Home', href: '/' }, { label: 'Blog', href: '/blog' }]} />
 
       <div className="grid grid-cols-2 gap-8">

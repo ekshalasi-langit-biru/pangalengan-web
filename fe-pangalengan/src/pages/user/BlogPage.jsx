@@ -110,23 +110,26 @@ export default function BlogPage() {
 
   if (!post) return <p>Post not found</p>;
   return (
-    <div className="min-h-screen bg-gray-100 p-4 md:p-10">
-      <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-4 gap-8">
-        {/* Main Content */}
-        <div className="md:col-span-3 bg-white p-6 shadow rounded">
+    <div className="min-h-screen ">
+      <section className='ml-24 h-12'>
           <Breadcrumb paths={[
             { label: 'Home', href: '/' },
             { label: 'Blog', href: '/Blogs' },
             { label: 'Post', href: '/' },
           ]} />
+      </section>
+      <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-4 gap-8">
+        {/* Main Content */}
+        <div className="md:col-span-3 bg-white p-6 shadow-lg rounded border border-gray-200 ring-gray-800">
 
-          <div className="text-right text-xs text-gray-500 mb-2">
+          <div className="text-right text-xs text-gray-500 my-2">
             Posted {new Date(post.postedAt).toLocaleTimeString('id-ID', { hour: '2-digit', minute: '2-digit' })} WIB - {new Date(post.postedAt).toLocaleDateString('id-ID', {
               day: 'numeric',
               month: 'long',
               year: 'numeric',
             })}
           </div>
+          <div className='w-full h-[2px] bg-gray-500 my-6'></div>
 
           <h2 className="text-indigo-600 font-semibold text-sm mb-1">
             {post.category.toUpperCase()}
@@ -143,7 +146,7 @@ export default function BlogPage() {
           <img
             src={post.image}
             alt={post.title}
-            className="w-full h-auto object-cover mb-2 rounded"
+            className="w-full h-[75vh] object-cover mb-2 rounded"
           />
 
           <p className="text-xs text-gray-500 mb-4">Image Credit: {post.author}</p>

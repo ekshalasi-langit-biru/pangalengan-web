@@ -34,6 +34,7 @@ const Header = () => {
       <nav className="flex ml-[-14vw] gap-[5vw] text-sm font-medium text-gray-800">
         {[
           { to: '/', label: 'Beranda' },
+          { to: '/Blogs', label: 'Blog' },
           { to: '/kontak', label: 'Kontak' },
           { to: '/tentang', label: 'Tentang' },
           { to: '/katalog', label: 'Katalog' },

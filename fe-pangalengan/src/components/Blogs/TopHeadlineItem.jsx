@@ -1,7 +1,6 @@
 import { Link } from 'react-router-dom';
 
 export default function TopHeadlineItem({ headline }) {
-    console.log(headline);
     return (
       <div className="flex flex-col gap-3 p-3 h-full">
         <Link to={`/BlogPage/${headline.id}`} className="relative block group">

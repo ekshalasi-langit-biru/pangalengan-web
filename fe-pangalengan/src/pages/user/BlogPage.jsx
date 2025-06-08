@@ -1,4 +1,4 @@
-import Breadcrumb from '../../components/common/BreadCrumb'
+import BreadCrumb from '../../components/common/BreadCrumb'
 import { useParams } from 'react-router-dom';
 
 const BlogsDummy = [
@@ -110,15 +110,15 @@ export default function BlogPage() {
 
   if (!post) return <p>Post not found</p>;
   return (
-    <div className="min-h-screen ">
-      <section className='ml-24 h-12'>
-          <Breadcrumb paths={[
-            { label: 'Home', href: '/' },
-            { label: 'Blog', href: '/Blogs' },
-            { label: 'Post', href: '/' },
+    <div className="min-h-screen max-w-screen-xl mx-auto px-4 py-1">
+      <section className='max-w-screen-xl mx-auto'>
+          <BreadCrumb paths={[
+            { label: 'Beranda', href: '/' },
+            { label: 'Blog', href: '/blog' },
+            { label: 'Unggahan', href: '/BlogPage/:id' },
           ]} />
       </section>
-      <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-4 gap-8">
+      <div className="max-w-screen-xl mx-auto grid grid-cols-1 md:grid-cols-4 gap-8">
         {/* Main Content */}
         <div className="md:col-span-3 bg-white p-6 shadow-lg rounded border border-gray-200 ring-gray-800">
 

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { FiHeart, FiTrash2 } from "react-icons/fi";
 import { Link, useNavigate } from "react-router-dom";
 import { useLikedProducts } from "../../context/LikedProductContext";

@@ -1,7 +1,6 @@
 import TopHeadlineItem from './TopHeadlineItem';
 
 export default function TopHeadlines({ headlines }) {
-  console.log(headlines);
   return (
     <section>
       <h2 className="text-xl font-bold mb-4">Top Headlines</h2>

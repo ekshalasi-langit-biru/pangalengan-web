@@ -8,7 +8,6 @@ import { useParams } from 'react-router-dom';
 
 export default function BlogsPageCategory() {
   const { category } = useParams();
-  console.log(category);
   const BlogsDummy = [
     {
       id: 1,

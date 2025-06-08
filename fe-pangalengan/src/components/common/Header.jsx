@@ -52,8 +52,7 @@ const Header = () => {
       <nav className="flex ml-[-14vw] gap-[5vw] text-sm font-medium text-gray-800">
         {[
           { to: '/', label: 'Beranda' },
-          { to: '/Blogs', label: 'Blog' },
-          { to: '/kontak', label: 'Kontak' },
+          { to: '/blog', label: 'Blog' },
           { to: '/tentang', label: 'Tentang' },
           { to: '/katalog', label: 'Katalog' },
         ].map(({ to, label }) => (
@@ -82,7 +81,7 @@ const Header = () => {
             <Link to="/liked-products">
               <MyHeartIcon className="w-5 h-5 text-black" />
             </Link>
-            <Link to="/profile">
+            <Link to="/settings">
               <FiUser className="w-5 h-5 text-black" />
             </Link>
           </div>

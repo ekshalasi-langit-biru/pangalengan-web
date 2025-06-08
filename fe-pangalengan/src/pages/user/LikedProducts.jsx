@@ -12,9 +12,9 @@ const LikedProducts = () => {
   return (
     <>
       <div className="mx-auto max-w-screen-xl px-4 py-2">
-        <Breadcrumbs paths={[{ label: 'Home', href: '/' }, { label: 'Katalog', href: '/katalog' }, { label: 'Liked Product', href: '/liked-products' }]} />
+        <Breadcrumbs paths={[{ label: 'Beranda', href: '/' }, { label: 'Katalog', href: '/katalog' }, { label: 'Produk Disukai', href: '/liked-products' }]} />
       </div>
-      <section className="px-8">
+      <section className="max-w-screen-xl mx-auto px-4 py-1">
         <div className="flex">
           <div className="h-8 w-5 rounded-md bg-red-500"></div>
           <h2 className="ml-4 text-xl font-bold text-red-500">
@@ -33,7 +33,7 @@ const LikedProducts = () => {
           </div>
         </div>
       </section>
-      <section className="px-8">
+      <section className="max-w-screen-xl mx-auto px-4 py-1">
         <div className="flex mb-5">
           <div className="h-8 w-5 rounded-md bg-red-500"></div>
           <h2 className="ml-4 text-xl font-bold text-red-500">

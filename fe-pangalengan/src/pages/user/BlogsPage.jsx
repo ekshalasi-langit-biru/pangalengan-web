@@ -1,10 +1,9 @@
-import Breadcrumb from '../../components/common/BreadCrumb'
+import BreadCrumb from '../../components/common/BreadCrumb'
 import FeaturedPost from '../../components/Blogs/FeaturedPost';
 import PostListItem from '../../components/Blogs/PostListItem';
 import TopHeadlines from '../../components/Blogs/TopHeadlines';
 import Categories from '../../components/Blogs/Categories';
 import AllPosts from '../../components/Blogs/AllPosts';
-import { Link } from 'react-router-dom';
 
 export default function BlogPage() {
   const BlogsDummy = [
@@ -116,8 +115,8 @@ export default function BlogPage() {
   const topHeadlines = BlogsDummy.slice().sort((a, b) => b.popularity - a.popularity).slice(0, 4)
   const latestPosts = BlogsDummy.slice().sort((a, b) => new Date(b.postedAt) - new Date(a.postedAt)).slice(0,3);
   return (
-    <div className="max-w-7xl mx-auto px-6 py-1">
-      <Breadcrumb paths={[{ label: 'Home', href: '/' }, { label: 'Blog', href: '/blog' }]} />
+    <div className="max-w-7xl mx-auto px-4 py-1">
+      <BreadCrumb paths={[{ label: 'Beranda', href: '/' }, { label: 'Blog', href: '/blog' }]} />
 
       <div className="grid grid-cols-2 gap-8">
         <FeaturedPost post={featuredPost} />

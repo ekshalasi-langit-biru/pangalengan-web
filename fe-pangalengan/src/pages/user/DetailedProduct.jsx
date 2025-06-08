@@ -1,21 +1,24 @@
-import React, { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import Breadcrumb from '../../components/common/BreadCrumb';
 import ListProducts from '../../components/user/ListProducts';
 
 const ProductImageGallery = ({ images, mainImage, onSelect }) => {
-    // console.log(images);
     return (
         <div className="flex gap-4">
             <div className="flex flex-col gap-2">
                 {images.map((img, i) => (
-                    <img
+                    <div
                         key={i}
-                        src={img}
-                        alt="Thumbnail"
-                        className="w-24 h-24 cursor-pointer border border-gray-300"
+                        className="w-24 h-24 flex items-center justify-center border border-gray-300 cursor-pointer"
                         onClick={() => onSelect(img)}
-                    />
+                    >
+                        <img
+                            src={img}
+                            alt="Thumbnail"
+                            className="object-contain w-full h-full"
+                        />
+                    </div>
                 ))}
             </div>
             <img src={mainImage} alt="Main" className="w-[30vw]" />
@@ -123,7 +126,7 @@ const DetailedProduct = () => {
             flavourOptions: ["Original", "Coklat", "Keju", "Balado"],
             colours: [],
             sizes: ["100g", "250g"],
-            imageUrls: ["/product/KeripikPisang1.svg"],
+            imageUrls: ["/product/KeripikPisang.svg", "/product/KeripikPisang.svg", "/product/KeripikPisang.svg"],
             mainImage: "/product/KeripikPisang.svg",
             contactLink: "https://wa.me/6281234567890",
             diskon: false,
@@ -211,11 +214,14 @@ const DetailedProduct = () => {
     const product = productsData.find(p => p.id === parseInt(id));
     const [mainImage, setMainImage] = useState(product.mainImage);
 
+    useEffect(() => {
+        setMainImage(product.mainImage);
+    }, [product]);
 
     return (
         <>
-        <section className='p-10'>
-            <Breadcrumb paths={[{ label: 'Home', href: '/' }, { label: 'Katalog', href: '/Katalog' }, { label: 'product', href: '/product' }]} />
+        <section className='max-w-screen-xl mx-auto px-4 py-1'>
+            <Breadcrumb paths={[{ label: 'Beranda', href: '/' }, { label: 'Katalog', href: '/katalog' }, { label: 'Produk', href: '/product/:id' }]} />
             <div className="grid grid-cols-2 p-10 gap-10">
                 <ProductImageGallery
                     images={product.imageUrls}
@@ -225,7 +231,7 @@ const DetailedProduct = () => {
                 <ProductInfo product={product} />
             </div>
         </section>
-        <section className="p-10 mt-5">
+        <section className="max-w-screen-xl mx-auto px-4 py-10 mt-10">
           <div className="flex">
             <div className="h-8 w-5 rounded-md bg-red-500"></div>
             <h2 className="ml-4 text-xl font-bold text-red-500">

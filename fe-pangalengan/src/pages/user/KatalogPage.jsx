@@ -8,7 +8,7 @@ const KatalogPage = () => {
     <>
       <div className="mx-auto max-w-screen-xl px-4 py-8">
         <section className="mb-8">
-        <Breadcrumb paths={[{ label: 'Home', href: '/' }, { label: 'Katalog', href: '/' }]} />
+        <Breadcrumb paths={[{ label: 'Home', href: '/' }, { label: 'Katalog', href: '/katalog' }]} />
         </section>
 
         <section className="mt-[47px]">

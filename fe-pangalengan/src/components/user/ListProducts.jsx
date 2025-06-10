@@ -1,6 +1,5 @@
-import { useState } from "react";
 import ProductCard from "./ProductCard";
-import { useNavigate } from "react-router-dom";
+
 const Listproducts = () => {
   const productsData = [
     {

@@ -34,7 +34,6 @@ const KatalogPage = () => {
           </div>
           <h2 className="mt-8 text-xl font-bold">All Categories</h2>
 
-
           <CategoryExplorer />
 
         </section>

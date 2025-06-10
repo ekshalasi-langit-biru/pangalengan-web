@@ -12,7 +12,7 @@ export default function FeaturedPost({ post }) {
           />
         </Link>
         <h3 className="text-sm font-semibold text-indigo-600 mb-1">{post.category}</h3>
-        <Link to={`/Blog/${post.id}`} className='hover:underline'>
+        <Link to={`/BlogPage/${post.id}`} className='hover:underline'>
           <h1 className="text-2xl font-bold text-gray-900 leading-snug">{post.title}</h1>
         </Link>
         <p className="text-sm text-gray-500 mt-1">{post.author} · {post.date}</p>

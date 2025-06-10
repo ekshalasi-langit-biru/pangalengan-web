@@ -2,8 +2,13 @@ import HeroCarousel from '../../components/user/HeroCarousel'
 import ProductCatalog from '../../components/user/ProductCatalog'
 import CategoryExplorer from '../../components/user/CategoryExplorer'
 import HeadlineNews from '../../components/user/HeadlineNews'
+import BlogsDummy from '../../components/common/BlogsDummy'
 
 const HomePage = () => {
+  const twoPolitic = BlogsDummy.filter(p => p.category === 'Politic').slice(0, 2);
+  const oneFinance = BlogsDummy.filter(p => p.category === 'Finance').slice(0, 1);
+  const customHeadlines = [...twoPolitic, ...oneFinance];
+  
   return (
     <div className="w-full bg-white">
       <section className="w-full mb-10">
@@ -39,7 +44,7 @@ const HomePage = () => {
       </section>
 
       <section className="max-w-screen-xl mx-auto px-6">
-        <HeadlineNews />
+        <HeadlineNews headlines={customHeadlines} />
       </section>
     </div>
   );

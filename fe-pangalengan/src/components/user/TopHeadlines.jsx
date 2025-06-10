@@ -1,4 +1,4 @@
-import TopHeadlineItem from './TopHeadlineItem';
+import TopHeadlineItem from '../user/TopHeadlineItem';
 
 export default function TopHeadlines({ headlines }) {
   return (

@@ -1,3 +1,4 @@
+
 be-pangalengan/node_modules/
 be-pangalengan/public/build/
 be-pangalengan/public/hot/
@@ -13,6 +14,23 @@ be-pangalengan/Homestead.json
 be-pangalengan/Homestead.yaml
 be-pangalengan/auth.json
 
+
+
+/.phpunit.cache
+/phpunit.result.cache
+/vendor
+/.env
+.env.backup
+.env.production
+/node_modules
+/public/build
+/public/hot
+/public/storage
+/storage/*.key
+Homestead.json
+Homestead.yaml
+auth.json
+
 fe-pangalengan/logs
 fe-pangalengan/*.log
 fe-pangalengan/npm-debug.log*
@@ -25,6 +43,10 @@ fe-pangalengan/dist
 fe-pangalengan/dist-ssr
 fe-pangalengan/*.local
 
+
+/.fleet
+/.idea
+/.vscode
 /.fleet
 /.idea
 /.vscode

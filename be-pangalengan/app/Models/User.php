@@ -22,6 +22,7 @@ class User extends Authenticatable
         'email',
         'password',
         'phone',
+
     ];
 
     /**
@@ -46,6 +47,7 @@ class User extends Authenticatable
             'password' => 'hashed',
         ];
     }
+
 
     public function likedProducts()
     {

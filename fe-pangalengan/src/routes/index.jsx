@@ -3,9 +3,17 @@ import useAuth from '../context/useAuth'
 
 import SignIn from '../pages/auth/SignIn'
 import SignUp from '../pages/auth/SignUp'
+import ForgotPass from '../pages/auth/ForgotPass'
+
 import HomePage from '../pages/user/HomePage'
 import AboutPage from '../pages/user/AboutPage'
 import AccountSettings from '../pages/user/AccountSettings'
+import BlogsPage from '../pages/user/BlogsPage'
+import BlogPage from '../pages/user/BlogPage'
+import BlogsPageCategory from '../pages/user/BlogsPageCategory'
+import KatalogPage from '../pages/user/KatalogPage'
+import LikedProducts from '../pages/user/LikedProducts'
+import DetailedProduct from '../pages/user/DetailedProduct'
 
 import AuthLayout from '../layout/AuthLayout'
 import UserLayout from '../layout/UserLayout'
@@ -28,13 +36,19 @@ const AppRoutes = () => {
         <Route element={<UserLayout />}>
             <Route path="/" element={<HomePage />} />
             <Route path="/tentang" element={<AboutPage />} />
-            {/* <Route path="/e.g-detail-product" element={<ProductDetail />} /> */}
+            <Route path="/blog" element={<BlogsPage />} />
+            <Route path="/BlogPage/:id" element={<BlogPage/>} />
+            <Route path="/Blogs/:category" element={<BlogsPageCategory/>} />
+            <Route path="/katalog" element={<KatalogPage />} />
+            <Route path="/liked-products" element={<LikedProducts />} />
+            <Route path="/product/:id" element={<DetailedProduct/>} />
         </Route>
 
         {/* Auth Pages */}
         <Route element={<AuthLayout />}>
             <Route path="/sign-in" element={<SignIn />} />
             <Route path="/sign-up" element={<SignUp />} />
+            <Route path="/forgot-pass" element={<ForgotPass />} />
         </Route>
 
         {/* User Protected Pages */}
@@ -46,8 +60,6 @@ const AppRoutes = () => {
             }
         >
             <Route path="/settings" element={<AccountSettings />} />
-            {/* <Route path="/wishlist" element={<Wishlist />} /> */}
-            {/* <Route path="/profile" element={<Profile />} /> */}
         </Route>
 
         {/* Admin Pages */}

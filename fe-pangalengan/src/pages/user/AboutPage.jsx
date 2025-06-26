@@ -1,4 +1,4 @@
-import BreadCrumbs from "../../components/common/BreadCrumbs";
+import BreadCrumb from "../../components/common/BreadCrumb";
 import VisionMission from "../../components/user/VisionMission";
 import OrganizationStructure from "../../components/user/OrganizationStructure";
 import VillageLocation from "../../components/user/VillageLocation";
@@ -8,7 +8,7 @@ const AboutPage = () => {
     <div className="max-w-screen-xl mx-auto px-4 py-8">
       
       <section className="mb-8">
-        <BreadCrumbs paths={["Beranda", "Tentang"]} />
+        <BreadCrumb paths={[{ label: 'Beranda', href: '/' }, { label: 'Tentang', href: '/tentang' }]} />
       </section>
 
       <section className="flex flex-col md:flex-row items-start md:items-center gap-8 mb-12">
@@ -26,7 +26,7 @@ const AboutPage = () => {
           <img
             src="/villageProfile/aboutProfile.png"
             alt="Pangalengan Landscape"
-            className="w-full h-auto rounded-lg shadow-md object-cover"
+            className="w-full h-auto rounded-lg object-cover"
           />
         </div>
 

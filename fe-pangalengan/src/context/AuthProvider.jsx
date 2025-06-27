@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react'
 import { AuthContext } from './AuthContext'
 
-const useDummy = true
+const useDummy = true //untuk test tampilan header ketika sebelum/sesudah login
 
 const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(null)

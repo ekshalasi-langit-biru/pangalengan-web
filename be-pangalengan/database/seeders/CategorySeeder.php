@@ -14,31 +14,6 @@ class CategorySeeder extends Seeder
     public function run(): void
     {
         //
-        Category::insert([
-            [
-                'id' => 1,
-                'name' => 'Coffe Dummy 1',
-                'slug' => 'espresso',
-                'created_at' => now(),
-                'updated_at' => now(),
-            ],
-
-            [
-                'id' => 2,
-                'name' => 'Coffe Dummy 2',
-                'slug' => 'latte',
-                'created_at' => now(),
-                'updated_at' => now(),
-            ],
-
-            [
-                'id' => 3,
-                'name' => 'Coffe Dummy 3',
-                'slug' => 'cappucino',
-                'created_at' => now(),
-                'updated_at' => now(),
-            ]
-
-        ]);
+        Category::factory()->count(100)->create();
     }
 }

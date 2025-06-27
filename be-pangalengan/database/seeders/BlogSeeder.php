@@ -4,9 +4,9 @@ namespace Database\Seeders;
 
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
-Use App\Models\Product;
+use App\Models\Blog;
 
-class ProductSeeder extends Seeder
+class BlogSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -14,6 +14,6 @@ class ProductSeeder extends Seeder
     public function run(): void
     {
         //
-        Product::factory()->count(100)->create();
+        Blog::factory()->count(50)->create();
     }
 }

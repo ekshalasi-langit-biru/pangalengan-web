@@ -14,7 +14,7 @@ const useScroll = () => {
   return isScrolled
 }
 
-const SettingsHeader = () => {
+const CatalogHeader = () => {
   const navigate = useNavigate()
   const isScrolled = useScroll()
 
@@ -26,21 +26,21 @@ const SettingsHeader = () => {
     >
       <div className="flex items-center gap-4">
         <button
-          onClick={() => navigate('/')}
+          onClick={() => navigate('/pengaturan/toko-saya')}
           className="text-xl text-gray-600 hover:text-black transition"
         >
           <FiArrowLeft />
         </button>
-        <h1 className="text-lg font-semibold text-gray-800">Pengaturan</h1>
+        <h1 className="text-lg font-semibold text-gray-800">Katalog</h1>
       </div>
       <Link 
         to="/"
         className="text-xl font-bold text-black"
       >
-          Warnasari
+        Warnasari
       </Link>
     </header>
   )
 }
 
-export default SettingsHeader
+export default CatalogHeader

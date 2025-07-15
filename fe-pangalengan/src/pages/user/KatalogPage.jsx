@@ -1,9 +1,15 @@
-import { FiSearch } from "react-icons/fi";
+import { useState } from "react";
 import CategoryExplorer from "../../components/user/CategoryExplorer";
 import ListProducts from "../../components/user/ListProducts";
 import Breadcrumb from "../../components/common/BreadCrumb";
+import useSearchFilter from "../../components/common/useSearchFilter";
+import CatalogSearchBar from "../../components/common/CatalogSearchBar";
+import ProductsData from "../../components/common/ProductsData";
 
 const KatalogPage = () => {
+  const [searchTerm, setSearchTerm] = useState("");
+  const filteredProducts = useSearchFilter(ProductsData, searchTerm, ["name", "description"]);
+
   return (
     <>
       <div className="mx-auto max-w-screen-xl px-4 py-8">
@@ -12,18 +18,13 @@ const KatalogPage = () => {
         </section>
 
         <section className="mt-[47px]">
-          <img src="/catalog/Photo.svg" alt="background" />
+          <img src="/catalog/catalogBackground.png" alt="background" />
         </section>
 
         <section className="mt-10 flex justify-between">
           <h1 className="text-2xl font-bold">Give All You Need</h1>
-          <div className="relative">
-            <input
-              type="text"
-              placeholder="Cari produk yang kamu inginkan"
-              className="w-80 rounded-md bg-gray-100 py-2 pl-4 pr-24 text-sm placeholder-gray-500 focus:outline-none"
-            />
-            <FiSearch className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-600" />
+          <div className="relative w-80">
+            <CatalogSearchBar onSearch={setSearchTerm} />
           </div>
         </section>
 
@@ -46,7 +47,7 @@ const KatalogPage = () => {
             </h2>
           </div>
           <div className="mt-8">
-            <ListProducts/>
+            <ListProducts products={filteredProducts}/>
           </div>
         </section>
       </div>

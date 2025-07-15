@@ -1,9 +1,6 @@
-import { useState } from "react";
 import { FiHeart, FiTrash2 } from "react-icons/fi";
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { useLikedProducts } from "../../context/LikedProductContext";
-
-
 
 const ProductCard = ({ product, onLike, isLikedPage }) => {
   if (!product) {
@@ -13,7 +10,7 @@ const ProductCard = ({ product, onLike, isLikedPage }) => {
   const { name, price, mainImage, diskon, presentaseDiskon } = product;
 
   const formatPrice = (price) => {
-    return price.toLocaleString("id-ID");
+    return Number(price).toLocaleString("id-ID");
   };
 
   const calculateDiscountedPrice = () => {
@@ -26,12 +23,10 @@ const ProductCard = ({ product, onLike, isLikedPage }) => {
 
   const discountedPrice = calculateDiscountedPrice();
   const { likedProducts, setLikedProducts } = useLikedProducts();
-  const navigate = useNavigate();
 
   const handleLike = (product) => {
     if (!likedProducts.some((likedProduct) => likedProduct.id === product.id)) {
       setLikedProducts([...likedProducts, product]);
-      // navigate("/liked-products");
     } else {
       setLikedProducts(
         likedProducts.filter(
@@ -83,7 +78,7 @@ const ProductCard = ({ product, onLike, isLikedPage }) => {
         </button>
 
       </div>
-      <Link to={`/product/${product.id}`}>
+      <Link to={`/produk/${product.id}`}>
         <div
           className="bg-black text-white text-center py-3 cursor-pointer 
       transition duration-200 transform hover:scale-95 hover:bg-opacity-90"
@@ -98,15 +93,15 @@ const ProductCard = ({ product, onLike, isLikedPage }) => {
         {diskon && presentaseDiskon > 0 ? (
           <div className="flex items-center space-x-2">
             <p className="text-red-500 font-bold text-xl">
-              Rp.{formatPrice(discountedPrice)}
+              Rp {formatPrice(discountedPrice)}
             </p>
             <p className="text-gray-500 line-through text-sm">
-              Rp.{formatPrice(price)}
+              Rp {formatPrice(price)}
             </p>
           </div>
         ) : (
           <p className="text-red-500 font-bold text-xl">
-            Rp.{formatPrice(price)}
+            Rp {formatPrice(price)}
           </p>
         )}
       </div>

@@ -14,6 +14,8 @@ import BlogsPageCategory from '../pages/user/BlogsPageCategory'
 import KatalogPage from '../pages/user/KatalogPage'
 import LikedProducts from '../pages/user/LikedProducts'
 import DetailedProduct from '../pages/user/DetailedProduct'
+import CategoryProducts from '../pages/user/CategoryProducts'
+import AddProduct from '../pages/user/AddProduct'
 
 import AuthLayout from '../layout/AuthLayout'
 import UserLayout from '../layout/UserLayout'
@@ -40,8 +42,9 @@ const AppRoutes = () => {
             <Route path="/BlogPage/:id" element={<BlogPage/>} />
             <Route path="/Blogs/:category" element={<BlogsPageCategory/>} />
             <Route path="/katalog" element={<KatalogPage />} />
-            <Route path="/liked-products" element={<LikedProducts />} />
-            <Route path="/product/:id" element={<DetailedProduct/>} />
+            <Route path="/katalog/:type" element={<CategoryProducts/>} />
+            <Route path="/produk-disukai" element={<LikedProducts />} />
+            <Route path="/produk/:id" element={<DetailedProduct/>} />
         </Route>
 
         {/* Auth Pages */}
@@ -59,7 +62,9 @@ const AppRoutes = () => {
             </ProtectedRoute>
             }
         >
-            <Route path="/settings" element={<AccountSettings />} />
+            <Route path="/pengaturan" element={<Navigate to="/pengaturan/akun" />} />
+            <Route path="/pengaturan/*" element={<AccountSettings />} />
+            <Route path="/pengaturan/tambah-katalog" element={<AddProduct />} />
         </Route>
 
         {/* Admin Pages */}

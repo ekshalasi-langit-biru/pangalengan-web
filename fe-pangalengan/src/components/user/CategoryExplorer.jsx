@@ -4,37 +4,37 @@ const categories = [
   {
     id: 1,
     name: "Sayuran",
-    path: "/kategori/sayuran",
+    path: "/katalog/sayuran",
     icon: "/category/vegetableIcon.svg",
   },
   {
     id: 2,
     name: "Makanan",
-    path: "/kategori/makanan",
+    path: "/katalog/makanan",
     icon: "/category/foodIcon.svg",
   },
   {
     id: 3,
     name: "Kopi & Teh",
-    path: "/kategori/kopi-teh",
+    path: "/katalog/kopi-teh",
     icon: "/category/drinkIcon.svg",
   },
   {
     id: 4,
     name: "Mainan",
-    path: "/kategori/mainan",
+    path: "/katalog/mainan",
     icon: "/category/gameIcon.svg",
   },
   {
     id: 5,
     name: "Herbal/Obat",
-    path: "/kategori/herbal-obat",
+    path: "/katalog/herbal-obat",
     icon: "/category/medicineIcon.svg",
   },
   {
     id: 6,
     name: "Kerajinan",
-    path: "/kategori/kerajinan",
+    path: "/katalog/kerajinan",
     icon: "/category/craftIcon.svg",
   },
 ];

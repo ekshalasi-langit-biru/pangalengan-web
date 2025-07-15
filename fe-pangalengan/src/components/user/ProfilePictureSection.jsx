@@ -19,9 +19,6 @@ const ProfilePictureSection = () => {
 
       <p className="text-sm mt-1">
         Mari berkembang bersama dan dukung UMKM lokal.{' '}
-        {/* <a href="#" className="text-blue-500 hover:underline">
-          Pelajari lebih lanjut
-        </a> */}
       </p>
     </section>
   )

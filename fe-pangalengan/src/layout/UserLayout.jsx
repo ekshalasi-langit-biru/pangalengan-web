@@ -4,7 +4,7 @@ import Footer from '../components/common/Footer'
 
 const UserLayout = () => {
   const { pathname } = useLocation()
-  const isSettingsPage = pathname.startsWith('/settings')
+  const isSettingsPage = pathname.startsWith('/pengaturan')
 
   return (
     <div className={isSettingsPage ? 'bg-white' : ''}>

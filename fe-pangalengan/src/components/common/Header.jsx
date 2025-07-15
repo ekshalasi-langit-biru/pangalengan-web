@@ -1,7 +1,8 @@
 import { useEffect, useState } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
-import { FiHeart, FiUser, FiSearch } from "react-icons/fi";
+import { FiHeart, FiUser } from "react-icons/fi";
 import useAuth from "../../context/useAuth";
+import GlobalSearchBar from "./GlobalSeacrhBar";
 
 const useScroll = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -24,8 +25,8 @@ const MyHeartIcon = () => {
   };
 
   const heartStyle = {
-    fill: location.pathname === "/liked-products" ? "red" : "none",
-    stroke: location.pathname === "/liked-products" ? "red" : "black",
+    fill: location.pathname === "/produk-disukai" ? "red" : "none",
+    stroke: location.pathname === "/produk-disukai" ? "red" : "black",
   };
 
   return (
@@ -68,20 +69,15 @@ const Header = () => {
 
       <div className="flex items-center gap-[3vw]">
         <div className="relative">
-          <input
-            type="text"
-            placeholder="Cari yang kamu inginkan"
-            className="pl-4 pr-24 py-2 bg-gray-100 text-sm rounded-full focus:outline-none placeholder-gray-500"
-          />
-          <FiSearch className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-600" />
+          <GlobalSearchBar />
         </div>
 
         {user ? (
           <div className="flex items-center gap-4">
-            <Link to="/liked-products">
+            <Link to="/produk-disukai">
               <MyHeartIcon className="w-5 h-5 text-black" />
             </Link>
-            <Link to="/settings">
+            <Link to="/pengaturan">
               <FiUser className="w-5 h-5 text-black" />
             </Link>
           </div>

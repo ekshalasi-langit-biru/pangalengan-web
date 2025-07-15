@@ -1,44 +1,41 @@
-import { useState } from 'react'
+import { useLocation, useNavigate } from 'react-router-dom'
 import SettingsHeader from '../../components/user/SettingsHeader'
 import SidebarSettingMenu from '../../components/user/SidebarSettingMenu'
 import ProfilePictureSection from '../../components/user/ProfilePictureSection'
 import AccountBasicInfo from '../../components/user/AccountBasicInfo'
+import MyStore from '../../components/user/MyStore'
 
 const AccountSettings = () => {
-  const [activeTab, setActiveTab] = useState('account')
+  const location = useLocation()
+  const navigate = useNavigate()
+
+  const tab = location.pathname.split('/')[2] || 'akun'
+
+  const handleTabChange = (selectedTab) => {
+    navigate(`/pengaturan/${selectedTab}`)
+  }
 
   const renderContent = () => {
-    switch (activeTab) {
-      case 'account':
+    switch (tab) {
+      case 'akun':
         return (
           <>
             <ProfilePictureSection />
             <AccountBasicInfo />
           </>
         )
-      case 'preference':
-        return <div className="text-center py-10">Preferensi (coming soon)</div>
-      case 'privacy':
-        return <div className="text-center py-10">Privasi & Izin (coming soon)</div>
-      case 'history':
-        return <div className="text-center py-10">Histori & Statistik (coming soon)</div>
-      case 'support':
-        return <div className="text-center py-10">Bantuan & Dukungan (coming soon)</div>
+      case 'toko-saya':
+        return <MyStore />
       default:
-        return null
+        return <p>Tab tidak ditemukan</p>
     }
   }
 
   return (
     <div className="min-h-screen bg-white">
       <SettingsHeader />
-
       <div className="max-w-screen-xl mx-auto px-6 py-8 flex flex-col md:flex-row gap-6">
-        <SidebarSettingMenu
-          activeTab={activeTab}
-          onTabChange={setActiveTab}
-        />
-
+        <SidebarSettingMenu activeTab={tab} onTabChange={handleTabChange} />
         <div className="flex-1 space-y-1">
           {renderContent()}
         </div>

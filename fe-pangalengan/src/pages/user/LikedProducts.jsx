@@ -1,9 +1,8 @@
-import { href } from "react-router-dom";
+import { useLikedProducts } from "../../context/LikedProductContext";
 import Breadcrumbs from "../../components/common/BreadCrumb";
 import ProductCard from "../../components/user/ProductCard";
-import { useLikedProducts } from "../../context/LikedProductContext";
-import Listproducts from "../../components/user/ListProducts";
-
+import ListProducts from "../../components/user/ListProducts";
+import ProductsData from "../../components/common/ProductsData";
 
 const LikedProducts = () => {
   const { likedProducts } = useLikedProducts();
@@ -12,7 +11,7 @@ const LikedProducts = () => {
   return (
     <>
       <div className="mx-auto max-w-screen-xl px-4 py-2">
-        <Breadcrumbs paths={[{ label: 'Beranda', href: '/' }, { label: 'Katalog', href: '/katalog' }, { label: 'Produk Disukai', href: '/liked-products' }]} />
+        <Breadcrumbs paths={[{ label: 'Beranda', href: '/' }, { label: 'Katalog', href: '/katalog' }, { label: 'Produk Disukai', href: '/produk-disukai' }]} />
       </div>
       <section className="max-w-screen-xl mx-auto px-4 py-1">
         <div className="flex">
@@ -24,7 +23,7 @@ const LikedProducts = () => {
         </div>
         <div className="flex flex-col ">
           <p className="ml-6 mt-5 text-lg font-medium text-black">
-            Get Your Wish in Our List
+            Temukan Keinginan Anda di Daftar Kami!
           </p>
           <div className="grid grid-cols-1 gap-3 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 p-10">
             {likedProducts.map((product) => (
@@ -40,7 +39,7 @@ const LikedProducts = () => {
             Produk Lainnya
           </h2>
         </div>
-        <Listproducts/>
+        <ListProducts products={ProductsData} />
       </section>
     </>
   );

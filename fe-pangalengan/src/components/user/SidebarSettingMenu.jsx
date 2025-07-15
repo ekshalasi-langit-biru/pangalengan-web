@@ -1,7 +1,9 @@
 import { FiShield } from 'react-icons/fi'
+import { FiShoppingBag } from 'react-icons/fi'
 
 const menuItems = [
-  { id: 'account', label: 'Akun dan Keamanan', icon: <FiShield /> },
+  { id: 'akun', label: 'Akun dan Keamanan', icon: <FiShield /> },
+  { id: 'toko-saya', label: 'Toko Saya', icon: <FiShoppingBag /> },
 ]
 
 const SidebarSettingMenu = ({ activeTab, onTabChange }) => {

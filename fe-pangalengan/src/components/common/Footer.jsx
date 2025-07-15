@@ -26,7 +26,7 @@ const Footer = () => {
           <div>
             <h3 className="font-semibold mb-3">Akun</h3>
             <ul className="leading-relaxed space-y-1">
-              <li><Link to="/settings" className="hover:underline">Akun Saya</Link></li>
+              <li><Link to="/pengaturan" className="hover:underline">Akun Saya</Link></li>
               <div className="flex space-x-1">
                 <button 
                   onClick={() => {
@@ -39,15 +39,6 @@ const Footer = () => {
             </ul>
           </div>
 
-          {/* <div>
-            <h3 className="font-semibold mb-2">Quick Link</h3>
-            <ul className="leading-relaxed space-y-1">
-              <li><Link to="/kebijakan" className="hover:underline">Kebijakan Privasi</Link></li>
-              <li><Link to="/syarat" className="hover:underline">Persyaratan Pengguna</Link></li>
-              <li><Link to="/faq" className="hover:underline">Pertanyaan yang sering diajukan (FAQ)</Link></li>
-              <li><Link to="/kontak" className="hover:underline">Kontak</Link></li>
-            </ul>
-          </div> */}
         </div>
 
         <div className="border-t border-gray-700 mt-10 pt-4 text-center text-xs text-gray-400">

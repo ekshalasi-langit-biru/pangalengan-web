@@ -6,20 +6,20 @@ const slides = [
   {
     id: 1,
     type: 'image',
-    src: '/villageProfile/photoProfile1.png',
-    caption: 'UMKM Pangalengan - agribisnis, peternakan, wisata.'
+    src: '/villageProfile/cileuncaTour.jpg',
+    caption: 'Wisata seru dan penuh warna di jantung Situ Cileunca.'
   },
   {
     id: 2,
     type: 'image',
-    src: '/villageProfile/photoProfile2.png',
-    caption: 'Situ Cileunca - Pesona alam Pangalengan.'
+    src: '/villageProfile/glampCileunca.jpg',
+    caption: 'Tenda nyaman di tepi danau, untuk pengalaman glamping tak terlupakan.'
   },
   {
     id: 3,
     type: 'image',
-    src: '/villageProfile/photoProfile1.png',
-    caption: 'Produk unggulan hasil bumi Pangalengan.'
+    src: '/villageProfile/pinusLakeView.jpg',
+    caption: 'Situ Cileunca – Panorama danau dengan latar hutan pinus yang memukau.'
   }
 ]
 

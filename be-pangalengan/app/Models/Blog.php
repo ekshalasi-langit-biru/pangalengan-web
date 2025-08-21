@@ -10,10 +10,12 @@ class Blog extends Model
     //
     use HasFactory;
     
-    protected $fillable = ['title', 'slug', 'content', 'thumbnail'];
+    protected $fillable = ['category_id','title', 'slug', 'content', 'thumbnail', 'is_headline'];// Update Headline and Category
 
     public function category()
     {
         return $this->belongsTo(Category::class); 
     }
 }
+
+

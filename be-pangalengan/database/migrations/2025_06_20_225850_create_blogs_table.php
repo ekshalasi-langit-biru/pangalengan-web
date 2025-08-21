@@ -13,10 +13,12 @@ return new class extends Migration
     {
         Schema::create('blogs', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('category_id')->nullable()->constrained('categories')->onDelete('set null');// Set Category
             $table->string('title');
             $table->string('slug')->unique();
             $table->text('content');
             $table->string('thumbnail')->nullable(); // optional thumbnail image
+            $table->string('is_headline')->default(false); // Update Headline
             $table->timestamps();
         });
     }

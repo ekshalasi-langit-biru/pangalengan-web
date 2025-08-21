@@ -4,6 +4,7 @@ namespace Database\Factories;
 
 use Illuminate\Database\Eloquent\Factories\Factory;
 use App\Models\Blog;
+use App\Models\Category;
 
 /**
  * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Blog>
@@ -24,6 +25,8 @@ class BlogFactory extends Factory
             'slug' => $this->faker->slug,
             'content' => $this->faker->paragraph, 
             'thumbnail' => $this->faker->imageUrl(), 
+            'category_id' => Category::inRandomOrder()->first()->id ?? Category::factory(),
+            'is_headline' => $this->faker->boolean(20), // 20% kemungkinan true
         ];
     }
 }

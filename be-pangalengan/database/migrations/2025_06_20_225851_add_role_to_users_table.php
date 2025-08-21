@@ -15,6 +15,10 @@ return new class extends Migration
             //
             $table->string('role')->default('user')->after('email'); 
         });
+
+        // Schema::table('admin', function()){
+        //     $table->string('role')->default('admin')
+        // }
     }
 
     /**

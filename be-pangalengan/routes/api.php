@@ -9,6 +9,16 @@ use App\Http\Controllers\API\UserController;
 use Illuminate\Support\Facades\Route;
 
 
+/*
+|--------------------------------------------------------------------------
+| API Routes
+|--------------------------------------------------------------------------
+*/
+
+
+// ======================
+// Public Routes (frontend)
+// ======================
 Route::post('/register', [AuthController::class, 'register']);
 Route::post('/login',    [AuthController::class, 'login']);
 Route::post('/forgot-password', [AuthController::class, 'sendResetLink']);
@@ -19,7 +29,13 @@ Route::get('/products/{id}', [ProductController::class, 'show']);
 Route::get('/categories',    [CategoryController::class, 'index']);
 Route::get('/categories/{slug}/products', [CategoryController::class, 'getProducts']);
 Route::get('/blogs',         [BlogController::class, 'index']);
+Route::get('/blogs/{slug}',  [BlogController::class, 'show']);
+Route::get('/blogs/headline',[BlogController::class, 'headline']);
+Route::get('/blogs/category/{slug}',      [BlogController::class, 'byCategory']);
 
+// ======================
+// Protected
+// ======================
 
 Route::middleware('auth:sanctum')->group(function () {
 
@@ -40,9 +56,21 @@ Route::middleware('auth:sanctum')->group(function () {
     Route::get('/user/liked-products', [ProductController::class, 'likedProducts']);
 
     
+// ======================
+// Admin Routes (protected)
+// ======================
+    
     Route::middleware('admin')->prefix('admin')->group(function () {
         Route::post('/products', [AdminProductController::class, 'store']);
-        Route::put('/products/{product}', [AdminProductController::class, 'update']);
+        Route::put('/products/{product}', [AdminProductController::class, 'update']);// Re-activated
         Route::delete('/products/{product}', [AdminProductController::class, 'destroy']);
+        
+        // ======================
+        // NEW FEATURES
+        // ======================
+        Route::post('/blogs', [AdminBlogController::class, 'store']);
+        Route::put('/blogs/{blog}', [AdminBlogController::class, 'update']);
+        Route::delete('/blogs/{blog}', [AdminBlogController::class, 'destroy']);
+
     });
 });

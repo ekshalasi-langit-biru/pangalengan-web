@@ -8,9 +8,13 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Validator;
 
+// ======================
+// ADMIN PRODUCT
+// ======================
+
 class AdminProductController extends Controller
 {
-    //
+
     public function store(Request $request)
     {
         $validator = Validator::make($request->all(), [
